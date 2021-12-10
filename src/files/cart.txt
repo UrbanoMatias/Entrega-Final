@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "timestamp": "Thu, 09 Dec 2021 21:36:28 GMT",
+    "productos": [
+      {
+        "id": 1,
+        "timestamp": "Thu, 09 Dec 2021 04:28:38 GMT",
+        "name": "CELULAR MOTOROLA E7",
+        "description": "lorem ipsum",
+        "code": "CMTE7",
+        "img": "https://images.fravega.com/f500/f29b85ffd06c691ae3dad0fecfc16f46.jpg",
+        "price": 23.999,
+        "stock": 15
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "timestamp": "Thu, 09 Dec 2021 21:36:28 GMT",
+    "productos": []
+  },
+  {
+    "id": 3,
+    "timestamp": "Thu, 09 Dec 2021 21:36:30 GMT",
+    "productos": []
+  },
+  {
+    "id": 4,
+    "timestamp": "Thu, 09 Dec 2021 21:36:31 GMT",
+    "productos": []
+  },
+  {
+    "id": 5,
+    "timestamp": "Thu, 09 Dec 2021 21:36:31 GMT",
+    "productos": []
+  }
+]
