@@ -1,10 +1,8 @@
-import { deepStrictEqual } from 'assert';
 import fs from 'fs'
 import __dirname from '../utils.js';
 import Contenedor from './Contenedor.js';
 const contenedor = new Contenedor();
 const cartURL = __dirname+'/files/cart.txt';
-const prodURL = __dirname+'/files/products.txt';
 
 class CartConteiner {
     
@@ -15,12 +13,19 @@ class CartConteiner {
             let id = carts[carts.length - 1].id + 1;
             let timestamp = Date.now();
             let hour = new Date(timestamp);
-            cart = Object.assign({
+            let dataObj = {
                 id: id,
                 timestamp: hour.toUTCString(),
                 productos: []
-            }, cart);
-            carts.push(cart)
+            };
+            carts.push(dataObj)
+            if (cart === dataObj){
+                dataObj = {
+                    id: id,
+                    timestamp: hour.toUTCString(),
+                    productos: []
+                };
+            }
             try {
                 await fs.promises.writeFile(cartURL, JSON.stringify(carts, null, 2));
                 return {
@@ -72,31 +77,35 @@ class CartConteiner {
         try {
             let data = await fs.promises.readFile(cartURL, 'utf-8');
             let carts = JSON.parse(data);
-            let product = (await contenedor.getById(idProd.id)).payload;
-            console.log(product)
             let car = await cartConteiner.cartById(idCart);
-            car.productos.push(product)
-            let newCart = carts.map((cart)=>{
-                if(cart.id === idCart){
-                    return car
-                } else {
-                    return cart
-                }
-            })
-            console.log(car)
-            
-            try {
-                await fs.promises.writeFile(cartURL, JSON.stringify(newCart, null, 2))
-                return {
-                    status: "success",
-                    message: "Producto agregado al carrito"
-                }
-            } catch (error) {
-                return {
-                    status: "error",
-                    message: "No se pudo agregar el producto al carrito" + error
-                }
-            }
+            if(car.productos.some(p => p.id === idProd.id) ) {
+                return {status:"error",message:"El producto ya existe"}
+            } else {
+                let product = (await contenedor.getById(idProd.id)).payload;
+                let car = await cartConteiner.cartById(idCart);
+                car.productos.push(product)
+                console.log(car.productos)
+                let productoID =  car.productos.filter(p => p.id === product.id);
+                let newCart = carts.map((cart)=>{
+                        if(cart.id === idCart){
+                            return car
+                        } else {
+                            return cart
+                        }
+                    })
+                    try {
+                        await fs.promises.writeFile(cartURL, JSON.stringify(newCart, null, 2))
+                        return {
+                            status: "success",
+                            message: "Producto agregado al carrito"
+                        }
+                    } catch (error) {
+                        return {
+                            status: "error",
+                            message: "No se pudo agregar el producto al carrito" + error
+                        }
+                }   
+            }   
         } catch (error) {
             return {
                 status: "error",

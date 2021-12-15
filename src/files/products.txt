@@ -2,9 +2,9 @@
   {
     "id": 1,
     "timestamp": "Thu, 09 Dec 2021 04:28:38 GMT",
-    "name": "CELULAR MOTOROLA E7",
+    "name": "CELULAR MOTOROLA E1",
     "description": "lorem ipsum",
-    "code": "CMTE7",
+    "code": "CMTE1",
     "img": "https://images.fravega.com/f500/f29b85ffd06c691ae3dad0fecfc16f46.jpg",
     "price": 23.999,
     "stock": 15
@@ -12,9 +12,39 @@
   {
     "id": 2,
     "timestamp": "Thu, 09 Dec 2021 04:28:38 GMT",
-    "name": "CELULAR MOTOROLA E7",
+    "name": "CELULAR MOTOROLA E2",
     "description": "lorem ipsum",
-    "code": "CMTE7",
+    "code": "CMTE2",
+    "img": "https://images.fravega.com/f500/f29b85ffd06c691ae3dad0fecfc16f46.jpg",
+    "price": 23.999,
+    "stock": 15
+  },
+  {
+    "id": 3,
+    "timestamp": "Thu, 09 Dec 2021 04:28:38 GMT",
+    "name": "CELULAR MOTOROLA E3",
+    "description": "lorem ipsum",
+    "code": "CMTE3",
+    "img": "https://images.fravega.com/f500/f29b85ffd06c691ae3dad0fecfc16f46.jpg",
+    "price": 23.999,
+    "stock": 15
+  },
+  {
+    "id": 4,
+    "timestamp": "Thu, 09 Dec 2021 04:28:38 GMT",
+    "name": "CELULAR MOTOROLA E4",
+    "description": "lorem ipsum",
+    "code": "CMTE4",
+    "img": "https://images.fravega.com/f500/f29b85ffd06c691ae3dad0fecfc16f46.jpg",
+    "price": 23.999,
+    "stock": 15
+  },
+  {
+    "id": 5,
+    "timestamp": "Thu, 09 Dec 2021 04:28:38 GMT",
+    "name": "CELULAR MOTOROLA E5",
+    "description": "lorem ipsum",
+    "code": "CMTE5",
     "img": "https://images.fravega.com/f500/f29b85ffd06c691ae3dad0fecfc16f46.jpg",
     "price": 23.999,
     "stock": 15

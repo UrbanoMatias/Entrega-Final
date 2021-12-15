@@ -12,7 +12,7 @@ const server = app.listen(PORT,()=>{
     console.log("Servidor escuchando en: ",PORT);
 });
 
-const admin = false;
+const admin = true;
 
 app.use((req,res,next)=>{
     req.auth = admin;
