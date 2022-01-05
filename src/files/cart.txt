@@ -40,5 +40,20 @@
         "stock": 15
       }
     ]
+  },
+  {
+    "id": 3,
+    "timestamp": "Tue, 04 Jan 2022 18:13:49 GMT",
+    "productos": []
+  },
+  {
+    "id": 4,
+    "timestamp": "Tue, 04 Jan 2022 18:13:53 GMT",
+    "productos": []
+  },
+  {
+    "id": 5,
+    "timestamp": "Tue, 04 Jan 2022 18:14:05 GMT",
+    "productos": []
   }
 ]

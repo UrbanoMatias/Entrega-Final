@@ -1,7 +1,8 @@
 import express from 'express';
-import Contenedor from '../classes/Contenedor.js';
+import Contenedor from '../contenedores/Contenedor.js';
 import { authMiddleware } from '../utils.js';
 const contenedor = new Contenedor();
+import {products} from '../daos/index.js'
 const router = express.Router();
 
 
@@ -9,33 +10,39 @@ const router = express.Router();
 //GETS
 router.get('/',(req,res)=>{
     console.log(req.query)
-    contenedor.getAll().then(result=>{
+    products.getAll().then(result=>{
         res.send(result);
     })
 })
 
 router.get('/:uid',(req,res)=>{
     let id = req.params.uid;
-    id = parseInt(id);
-    contenedor.getById(id).then(result=>{
+    products.getById(id).then(result=>{
         res.send(result);
     })
 })
 
 //POST
+// router.post('/',authMiddleware,(req,res)=>{
+//     let object = req.body;
+//     products.createObject(object).then(result=>{
+//         res.send(result)
+//     })
+// })
+
+
 router.post('/',authMiddleware,(req,res)=>{
     let product = req.body;
-    contenedor.createProduct(product).then(result=>{
+    products.createProduct(product).then(result=>{
         res.send(result)
     })
 })
 
-
 //PUT
-router.put('/:uid',authMiddleware,(req,res)=>{
-    let id = parseInt(req.params.uid);
+router.put('/:uid',(req,res)=>{
+    let id = req.params.uid;
     let body = req.body
-    contenedor.updateProduct(id,body).then(result=>{
+    products.updateObject(id,body).then(result=>{
         res.send(result);
     })
 })
@@ -43,8 +50,7 @@ router.put('/:uid',authMiddleware,(req,res)=>{
 //DELETE
 router.delete('/:pid',authMiddleware,(req,res)=>{
     let id = req.params.pid;
-    id = parseInt(id);
-    contenedor.deleteById(id).then(result=>{
+    products.deleteById(id).then(result=>{
         res.send(result);
     })
 })
